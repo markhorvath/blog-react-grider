@@ -1,16 +1,16 @@
 import React from 'react';
 //import connect and action itself to add an action creator to fetch the appropriate user
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
+
 
 class UserHeader extends React.Component {
     //whenever UserHeader displays we want to render the appropriate user through props
-    componentDidMount() {
-        this.props.fetchUser(this.props.userId)
-        // console.log(this.props); this will return a user value of undefined since
-        //the api call won't have had time to finish.  This.props.userId is the 'id' arg
-        //in fetchUsers action creator
-    }
+    // componentDidMount() {
+    //     this.props.fetchUser(this.props.userId)
+    //     // console.log(this.props); this will return a user value of undefined since
+    //     //the api call won't have had time to finish.  This.props.userId is the 'id' arg
+    //     //in fetchUsers action creator
+    // }
 
     render() {
         //use the find function to go thru the array looking at every user for the user (props.users) with the same id
@@ -38,4 +38,4 @@ const mapStateToProps = (state, ownProps) => {
 
 //add connect function to wire up the action creator to the component
 // starts with 'null' because we dont currently have a mapStateToProps func
-export default connect(mapStateToProps, {fetchUser})(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
